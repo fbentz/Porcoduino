@@ -55,7 +55,7 @@ float compute_Left_Motor_Raw_Speed(float value_x, float value_y){
   return (X_factor*value_x + Y_factor*value_y*sign(value_x));
 }
 
-float compute_Up_Motor_Raw_Speed(float value_Z){
+float compute_Up_Motor_Raw_Speed(float value_z){
   return (Z_factor*value_z);
 }
 
@@ -113,8 +113,9 @@ void loop() {
 }
 
 void serialEvent(){
+  //function used to change the pwm motors command when receiving events from serial
   if (Serial.available() > 0) {
-    // read the speed commandqs for each wheel
+    // read the velocity commands for each wheel
     incomingByte_X = Serial.read();
     incomingByte_X= constrain(incomingByte_X, -100,100);
     incomingByte_Y = Serial.read();
@@ -153,9 +154,10 @@ void serialEvent(){
         digitalWrite(motor_up_forward, LOW);
         digitalWrite(motor_up_backward, HIGH);
     }
-    Serial.write(motor_right_pwm);
-    Serial.write(motor_left_pwm);
-    Serial.write(motor_up_pwm);
+    //some debugging info
+    //Serial.write(motor_right_pwm);
+    //Serial.write(motor_left_pwm);
+    //Serial.write(motor_up_pwm);
     Serial.flush();   
   }
 }
