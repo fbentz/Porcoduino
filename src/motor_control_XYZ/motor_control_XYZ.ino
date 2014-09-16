@@ -17,9 +17,11 @@ float motor_left_speed = 0;
 
 char incomingByte_X = 0;
 char incomingByte_Y = 0;
+char incomingByte_Z = 0;
 
 const float X_factor = 2.0;
 const float Y_factor = 1.0;
+const float Z_factor = 1.0;
 
 float min_right;
 float max_right;
@@ -50,6 +52,7 @@ float compute_Left_Wheel_Speed(float value_x, float value_y){
   return map(compute_Left_Wheel_Raw_Speed(value_x, value_y), min_left, max_left,-MOTOR_MAX_PWM,MOTOR_MAX_PWM);
 }
 
+//
 void compute_Resize_Parameters(){
    min_right = compute_Right_Wheel_Raw_Speed(-100.0, -100.0);
    max_right = compute_Right_Wheel_Raw_Speed(100.0, -100.0);
