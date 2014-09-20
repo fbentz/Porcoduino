@@ -1,0 +1,24 @@
+{
+  "name": "Porcoduino",
+  "version": "0.0.1",
+  "description": "Porcoduino is an experiementation to play with a Zeppelin Arduino",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbentz/Porcoduino.git"
+  },
+  "keywords": [
+    "zeppelin",
+    "arduino",
+    "node.js"
+  ],
+  "author": "Fabrice Bentz Robin Passama",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fbentz/Porcoduino/issues"
+  },
+  "homepage": "https://github.com/fbentz/Porcoduino"
+}
