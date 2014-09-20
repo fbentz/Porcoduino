@@ -13,7 +13,7 @@ You needs electronics parts:
 
 ## Schema 
 This schema show how to build zeppelin:
-![Porcoduino Fritzing schema](https://raw.github.com/fbentz/Porcoduino/master/Porcoduino_bb.png)
+![Porcoduino Fritzing schema](https://raw.github.com/fbentz/Porcoduino/master/docs/Porcoduino_bb.png)
 
 ## Contributors
 * [Fabrice Bentz](https://github.com/fbentz/)
