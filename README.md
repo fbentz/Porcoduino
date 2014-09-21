@@ -12,8 +12,13 @@ You needs electronics parts:
 * 1 XBee shield (to connect on your computer)
 
 ## Schema 
-This schema show how to build zeppelin:
+This schema show how to put together electonics parts for zeppelin:
 ![Porcoduino Fritzing schema](https://raw.github.com/fbentz/Porcoduino/master/docs/Porcoduino_bb.png)
+
+## Client
+Zeppelin will be manage your zeppelin. 
+You need install: 
+
 
 ## Contributors
 * [Fabrice Bentz](https://github.com/fbentz/)
