@@ -1,11 +1,9 @@
-#define TEST_XY_ONLY
-
 //general definitions to interface with the hardware 
-#ifndef TEST_XY_ONLY
+
+
 #define UP_MOTOR_FORWARD 5
 #define UP_MOTOR_BACKWARD 6
 #define UP_MOTOR_ENABLE 10
-#endif
 
 #define RIGHT_MOTOR_FORWARD 7
 #define RIGHT_MOTOR_BACKWARD 8
@@ -122,12 +120,11 @@ void setup() {
 }
 
 void loop() {
+  
     //continuously controlling motors by applying the computed pwm
     analogWrite(RIGHT_MOTOR_ENABLE, right_motor_pwm);
     analogWrite(LEFT_MOTOR_ENABLE, left_motor_pwm);
-#ifndef TEST_XY_ONLY
     analogWrite(UP_MOTOR_ENABLE, up_motor_pwm);
-#endif
     delay(100);//control loop = 10Hz
 }
 
@@ -142,7 +139,7 @@ void serialEvent(){
 #ifndef TEST_XY_ONLY 
     incomingByte_Z = Serial.read();
     incomingByte_Z= constrain(incomingByte_Z, -100,100);
-#endif      
+#endif    
     //computing new desired velocity for each motor
     right_motor_velocity = compute_Right_Motor_Velocity(float(incomingByte_X), float(incomingByte_Y));
     left_motor_velocity = compute_Left_Motor_Velocity(float(incomingByte_X), float(incomingByte_Y));
@@ -169,8 +166,7 @@ void serialEvent(){
         digitalWrite(LEFT_MOTOR_FORWARD, LOW);
         digitalWrite(LEFT_MOTOR_BACKWARD, HIGH);
     }
-    
-#ifndef TEST_XY_ONLY
+#ifndef TEST_XY_ONLY     
    //configuring up motor PWM
     up_motor_pwm = byte(abs(up_motor_velocity));  
     if(up_motor_velocity >= 0){
@@ -183,11 +179,9 @@ void serialEvent(){
     }
 #endif
     //some debugging info
-    Serial.write(right_motor_pwm);
-    Serial.write(left_motor_pwm);
-#ifndef TEST_XY_ONLY
-    Serial.write(up_motor_pwm);
-#endif
+    //Serial.write(right_motor_pwm);
+    //Serial.write(left_motor_pwm);
+    //Serial.write(up_motor_pwm);
     Serial.flush();   
   }
 }
