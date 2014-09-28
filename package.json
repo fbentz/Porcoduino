@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/fbentz/Porcoduino",
   "devDependencies": {
+    "chai": "^1.9.1",
     "del": "^0.1.3",
     "gulp": "^3.8.8",
+    "gulp-mocha": "^1.1.0",
     "mocha": "^1.21.4"
   }
 }
