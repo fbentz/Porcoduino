@@ -4,7 +4,7 @@ var del = require('del');
 
 var options = {
   build: './build',
-  src: '.src'
+  src: './src'
 };
 
 gulp.task('clean', function(cb) {
