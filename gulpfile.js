@@ -16,13 +16,15 @@ gulp.task('clean', function(cb) {
   del(options.build, cb);
 });
 
-gulp.task('test:server', function() {
+gulp.task('tests:server', function() {
   return gulp.src(path.join(options.folders.tests, 'server/**/*_test.js'), {
     read: false
   })
-  .pipe(mocha({reporter: 'spec'}));
+    .pipe(mocha({
+      reporter: 'spec'
+    }));
 });
 
-gulp.task('test', ['clean'], function() {
-  return;
-});
+gulp.task('tests', ['tests:server']);
+
+gulp.task('default', ['tests']);
