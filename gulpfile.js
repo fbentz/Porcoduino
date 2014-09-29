@@ -23,6 +23,7 @@ gulp.task('tests:server', function() {
     read: false
   })
     .pipe(mocha({
+      ui: 'bdd',
       reporter: 'spec'
     }));
 });
