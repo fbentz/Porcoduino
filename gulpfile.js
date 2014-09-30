@@ -1,14 +1,16 @@
 'use strict';
 var gulp = require('gulp');
 var del = require('del');
-var path = require('path');
 var mocha = require('gulp-mocha');
 
 var options = {
-  folders: {
+  paths: {
     build: './build',
     src: './src',
-    tests: './tests'
+    tests: {
+      server: './tests/server/**/*_test.js',
+      client: './tests/client/**/*_test.js'
+    }
   },
 };
 
@@ -17,7 +19,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('tests:server', function() {
-  return gulp.src(path.join(options.folders.tests, 'server/**/*_test.js'), {
+  return gulp.src(options.paths.tests.server, {
     read: false
   })
     .pipe(mocha({
@@ -25,6 +27,11 @@ gulp.task('tests:server', function() {
     }));
 });
 
+gulp.task('watch', function() {
+  gulp.watch(options.paths.tests.server,['tests:server']);
+});
+
 gulp.task('tests', ['tests:server']);
 
 gulp.task('default', ['tests']);
+gulp.task('dev', ['default', 'watch']);
