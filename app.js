@@ -1,14 +1,20 @@
-var express = require('express');
-var app = express();
 var http = require('http');
+var express = require('express');
+var config = require('./config');
+var app = express();
+var server = http.createServer(app);
+var io = require('socket.io')(server);
 
-app.listen = function() {
-  var server = http.createServer(this);
-  return server.listen.apply(server, arguments);
-}
+app.use(express.static(__dirname + '/build'));
 
-module.exports = app;
+io.on('connection', function(socket) {
+  socket.on('move', function(data) {
+    socket.emit('moved', data);
+  });
+});
+
+module.exports = server;
 
 if (!module.parent) {
-  app.listen(3000);
+  server.listen(config.server.port);
 }

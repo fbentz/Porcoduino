@@ -1,0 +1,9 @@
+{
+	"xbee": {
+		"serialPort":"/dev/tty.usbserial-A601EZ5O",
+		"baudrate": 9600
+	},
+	"server": {
+		"port": 8000
+	}
+}
