@@ -1,22 +1,31 @@
 var chai = require('chai');
 var expect = chai.expect;
-var Robot = require('../../Robot');
-var SerialPort = require('serialPort').SerialPort;
+var Robot = require('../../src/Robot');
 
 describe('Robot', function() {
 
   describe('#contructor', function() {
-    it('should have a buffer with 2 arrays', function(done) {
+    it('should be instanciate', function() {
       var robot = new Robot();
-      console.log(robot);
-      expect(robot.buffer).to.be.instanceof(Buffer);
-      done();
+      expect(robot).to.be.instanceof(Robot);
     });
   });
 
   describe('#setPosition', function() {
-    it('', function(done) {
-      done();
+
+    var robot;
+
+    beforeEach(function() {
+      robot = new Robot();
+    });
+
+    afterEach(function() {
+      delete robot;
+    })
+
+    it('should have an array buffer with 2 dimension', function() {
+      robot.setPosition(new Buffer([100,100]));
+      expect(robot.buffer).to.be.instanceof(Buffer);
     });
   });
 
