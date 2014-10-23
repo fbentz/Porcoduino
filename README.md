@@ -16,7 +16,9 @@ This schema show how to put together electonics parts for zeppelin:
 ![Porcoduino Fritzing schema](https://raw.github.com/fbentz/Porcoduino/master/docs/Porcoduino_bb.png)
 
 ## App
-App will be manage your zeppelin. You need to install nodejs v.0.10.32 .
+App will manage your zeppelin.
+
+You need to install nodejs v.0.10.32 and install dependencies
 
 ```
   npm install
@@ -42,6 +44,11 @@ and run app with
   npm start
 ```
 
+if you want test your environnement run
+
+```
+  npm test
+```
 ## Contributors
 * [Fabrice Bentz](https://github.com/fbentz/)
 * [Robin Passama](https://github.com/passama/)
