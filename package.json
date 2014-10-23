@@ -4,8 +4,8 @@
   "description": "Porcoduino is an experiementation to play with a Zeppelin Arduino",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test",
-		"start":" node app.js"
+    "test": "gulp tests",
+    "start": " node app.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,8 @@
     "del": "^0.1.3",
     "gulp": "^3.8.8",
     "gulp-mocha": "^1.1.0",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "socket.io-client": "^1.1.0"
   },
   "dependencies": {
     "express": "^4.9.5",
