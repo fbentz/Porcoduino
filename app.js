@@ -4,7 +4,7 @@ var config = require('./config');
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io')(server);
-var Robot = require('./src/Robot');
+var Robot = require('./src/lib/Robot');
 var SerialPort = require('serialport').SerialPort;
 
 var serialPort = new SerialPort(config.xbee.serialPort, {

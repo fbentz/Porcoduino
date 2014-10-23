@@ -1,6 +1,6 @@
 var chai = require('chai');
 var expect = chai.expect;
-var Robot = require('../../src/Robot');
+var Robot = require('../../src/lib/Robot');
 var sinon = require('sinon');
 
 describe('Robot', function() {
