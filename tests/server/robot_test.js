@@ -11,7 +11,9 @@ describe('Robot', function() {
       expect(robot).to.be.instanceof(Robot);
     });
     it('should be instanciate with an adapater', function() {
-      var robot = new Robot();
+      var fakeAdapter = {};
+      var robot = new Robot(fakeAdapter);
+      expect(robot.serialPort).to.deep.equal({});
     });
   });
 
