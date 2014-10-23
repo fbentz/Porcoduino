@@ -1,0 +1,8 @@
+- arduino micro 22€
+- hélices *4
+- batterie lipo
+- plaquette zigbee
+- connecteur 10 broches
+
+
+
