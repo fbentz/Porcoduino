@@ -1,3 +1,5 @@
+'use strict';
+
 function Robot(serialPort) {
   this.serialPort = serialPort;
 }
