@@ -6,3 +6,4 @@ build/
 *.swp
 *.log
 *~
+config.json
