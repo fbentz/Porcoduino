@@ -11,16 +11,37 @@ You needs electronics parts:
 * 1 XBee shield (for Arduino)
 * 1 XBee shield (to connect on your computer)
 
-## Schema 
+## Schema
 This schema show how to put together electonics parts for zeppelin:
 ![Porcoduino Fritzing schema](https://raw.github.com/fbentz/Porcoduino/master/docs/Porcoduino_bb.png)
 
-## Client
-Zeppelin will be manage your zeppelin. 
-You need install: 
+## App
+App will be manage your zeppelin. You need to install nodejs v.0.10.32 .
 
+```
+  npm install
+```
+
+You need to set required information on config.json
+
+```
+{
+  "xbee": {
+    "serialPort":"/dev/tty.usbserial-A601EZ5O",
+    "baudrate": 9600
+  },
+  "server": {
+    "port": 8000
+  }
+}
+
+```
+and run app with
+
+```
+  npm start
+```
 
 ## Contributors
 * [Fabrice Bentz](https://github.com/fbentz/)
 * [Robin Passama](https://github.com/passama/)
-
