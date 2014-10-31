@@ -5,8 +5,8 @@ function Robot(serialPort) {
 }
 
 Robot.prototype.setSpeed = function(alpha, amplitude) {
-  this.x = Math.round(Math.cos(parseInt(alpha, 10)) * parseInt(amplitude, 10));
-  this.y = Math.round(Math.sin(parseInt(alpha, 10)) * -1 * parseInt(amplitude, 10));
+  this.x = Math.round(Math.cos(alpha) * parseInt(amplitude, 10));
+  this.y = Math.round(Math.sin(alpha) * -1 * parseInt(amplitude, 10));
 }
 
 Robot.prototype.move = function() {
