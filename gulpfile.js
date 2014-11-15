@@ -25,13 +25,13 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('copy', ['clean'], function() {
-  return gulp.src('./' + path.join(options.paths.src, options.paths.client.js,'index.html'))
+  return gulp.src('./' + path.join(options.paths.src, options.paths.client.js, 'index.html'))
     .pipe(gulp.dest(options.paths.build));
 });
 
 gulp.task('tests:server', function() {
   return gulp.src(options.paths.tests.server, {
-    read: false
+    read: true
   })
     .pipe(mocha({
       ui: 'bdd',
@@ -40,11 +40,12 @@ gulp.task('tests:server', function() {
 });
 
 gulp.task('browserify:app', ['browserify:vendors'], function() {
-  var bundleStream = browserify('./' + path.join(options.paths.src, options.paths.client.js,'app.js'));
+  var bundleStream = browserify('./' + path.join(options.paths.src, options.paths.client.js, 'app.js'));
 
   bundleStream
     .external('socket.io-client')
     .external('jquery')
+    .external('kinetic')
     .bundle()
     .pipe(source('app.js'))
     .pipe(gulp.dest(options.paths.build + '/js'));
@@ -52,13 +53,13 @@ gulp.task('browserify:app', ['browserify:vendors'], function() {
   return bundleStream;
 });
 
-
 gulp.task('browserify:vendors', function() {
   var bundleStream = browserify();
 
   bundleStream
     .require('socket.io-client')
     .require('jquery')
+    .require('kinetic')
     .bundle()
     .pipe(source('vendors.js'))
     .pipe(gulp.dest(options.paths.build + '/js'));
@@ -67,10 +68,11 @@ gulp.task('browserify:vendors', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(options.paths.tests.server,['tests:server']);
+  gulp.watch(options.paths.tests.server, ['tests:server']);
 });
 
-gulp.task('tests', ['tests:server']);
 gulp.task('browserify', ['browserify:app']);
-gulp.task('default', ['copy', 'browserify', 'tests']);
+
+gulp.task('default', ['copy', 'browserify', 'tests:server']);
+
 gulp.task('dev', ['default', 'watch']);

@@ -1,3 +1,4 @@
+'use strict';
 var http = require('http');
 var express = require('express');
 var config = require('./config');
@@ -8,7 +9,7 @@ var Robot = require('./src/lib/Robot');
 var SerialPort = require('serialport').SerialPort;
 
 var serialPort = new SerialPort(config.xbee.serialPort, {
-  baudrate: config.xbee.baudrate
+    baudrate: config.xbee.baudrate
 });
 
 app.use(express.static(__dirname + '/build'));

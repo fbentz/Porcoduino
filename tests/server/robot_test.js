@@ -1,3 +1,4 @@
+'use strict';
 var chai = require('chai');
 var expect = chai.expect;
 var Robot = require('../../src/lib/Robot');
@@ -7,7 +8,7 @@ describe('Robot', function() {
 
   describe('#contructor', function() {
     it('should be instanciate', function() {
-      var robot = new Robot
+      var robot = new Robot();
       expect(robot).to.be.instanceof(Robot);
     });
     it('should be instanciate with an adapater', function() {
@@ -37,8 +38,8 @@ describe('Robot', function() {
         write: sinon.spy()
       };
       robot = new Robot(fakeSerialPort);
-      robot.x = 41;
-      robot.y = 90;
+      robot.x = 42;
+      robot.y = 91;
     });
 
     it('should write x,y on serial port', function(done) {

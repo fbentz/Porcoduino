@@ -28,11 +28,13 @@
     "gulp": "^3.8.8",
     "gulp-mocha": "^1.1.0",
     "mocha": "^1.21.4",
+    "sinon": "^1.11.0",
     "vinyl-source-stream": "^1.0.0"
   },
   "dependencies": {
     "express": "^4.9.5",
     "jquery": "^2.1.1",
+    "kinetic": "^5.0.6",
     "serialport": "^1.4.6",
     "socket.io": "^1.1.0",
     "socket.io-client": "^1.1.0"
