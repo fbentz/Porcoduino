@@ -36,7 +36,9 @@
     "jquery": "^2.1.1",
     "kinetic": "^5.0.6",
     "serialport": "^1.4.6",
-    "socket.io": "^1.1.0",
-    "socket.io-client": "^1.1.0"
+    "socket.io": "^1.1.0"
+  },
+  "engines": {
+    "node": "^0.10.32"
   }
 }
